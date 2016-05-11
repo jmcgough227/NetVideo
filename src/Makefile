@@ -2,9 +2,9 @@
 # VideoStore
 #
 
-OBJS=NetVideo.o Video.o Rental.o Customer.o
-TOBJS=Video_t.o Rental_t.o Customer_t.o
-EXE=NetVideo Video_t Rental_t Customer_t
+OBJS=NetVideo.o Video.o Rental.o Subscriber.o
+TOBJS=Video_t.o Rental_t.o Subscriber_t.o
+EXE=NetVideo Video_t Rental_t Subscriber_t
 
 GCC= g++
 CFLAGS=-Wall
@@ -20,7 +20,7 @@ run : NetVideo
 NetVideo : $(OBJS)
 	$(GCC) $^ -o $@
 
-NetVideo.o: NetVideo.cpp Video.hpp Rental.hpp Customer.hpp
+NetVideo.o: NetVideo.cpp Video.hpp Rental.hpp Subscriber.hpp
 	$(GCC) $(CFLAGS) -c $<
 
 # Video
@@ -43,14 +43,14 @@ Rental_t : Rental_t.o Rental.o Video.o
 Rental_t.o: Rental_t.cpp Rental.hpp
 	$(GCC) $(CFLAGS) -c $<
 
-# Customer
-Customer.o: Customer.cpp Customer.hpp Video.hpp Rental.hpp
+# Subscriber
+Subscriber.o: Subscriber.cpp Subscriber.hpp Video.hpp Rental.hpp
 	$(GCC) $(CFLAGS) -c $<
 
-Customer_t : Customer_t.o Customer.o Rental.o Video.o
+Subscriber_t : Subscriber_t.o Subscriber.o Rental.o Video.o
 	$(GCC) $^ -o $@
 
-Customer_t.o: Customer_t.cpp Customer.hpp
+Subscriber_t.o: Subscriber_t.cpp Subscriber.hpp
 	$(GCC) $(CFLAGS) -c $<
 
 # clean
@@ -64,7 +64,7 @@ cleanobjects :
 
 # unit testing
 .PHONY : test
-test : Video_t Rental_t Customer_t
+test : Video_t Rental_t Subscriber_t
 	@./Video_t
 	@./Rental_t
-	@./Customer_t
+	@./Subscriber_t
