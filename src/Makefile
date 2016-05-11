@@ -2,9 +2,9 @@
 # VideoStore
 #
 
-OBJS=VideoStore.o Video.o Rental.o Customer.o
+OBJS=NetVideo.o Video.o Rental.o Customer.o
 TOBJS=Video_t.o Rental_t.o Customer_t.o
-EXE=VideoStore Video_t Rental_t Customer_t
+EXE=NetVideo Video_t Rental_t Customer_t
 
 GCC= g++
 CFLAGS=-Wall
@@ -12,15 +12,15 @@ CFLAGS=-Wall
 .PHONY : all
 all : $(EXE) test
 
-# VideoStore
+# NetVideo
 .PHONY : run
-run : VideoStore
-	@./VideoStore
+run : NetVideo
+	@./NetVideo
 
-VideoStore : $(OBJS)
+NetVideo : $(OBJS)
 	$(GCC) $^ -o $@
 
-VideoStore.o: VideoStore.cpp Video.hpp Rental.hpp Customer.hpp
+NetVideo.o: NetVideo.cpp Video.hpp Rental.hpp Customer.hpp
 	$(GCC) $(CFLAGS) -c $<
 
 # Video
