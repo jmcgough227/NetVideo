@@ -8,7 +8,7 @@
 
 #include "Video.hpp"
 #include "Rental.hpp"
-#include "Customer.hpp"
+#include "Subscriber.hpp"
 
 int main() {
 
@@ -20,13 +20,13 @@ int main() {
     Rental r1(lotr, 10);
     Rental r2(hp, 5);
 
-    // Customer with some rentals
-    Customer customer("Fred");
-    customer.addRental(r1);
-    customer.addRental(r2);
+    // Subscriber with some rentals
+    Subscriber subscriber("Fred");
+    subscriber.addRental(r1);
+    subscriber.addRental(r2);
 
-    // Output customer statement
-    std::cout << customer.statement();
+    // Output subscriber statement
+    std::cout << subscriber.statement();
 
     return 0;
 }
