@@ -28,7 +28,7 @@ public:
     std::string statement() const;
 
     // calculates amount for current statement
-    double amountFor() const;
+    double amountFor(std::vector<Rental>::const_iterator it) const;
 
 private:
     std::string name;
