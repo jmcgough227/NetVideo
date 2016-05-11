@@ -1,10 +1,10 @@
 /*
-  Customer.cpp
+  Subscriber.cpp
 
-  Definition file for Customer class
+  Definition file for Subscriber class
 */
 
-#include "Customer.hpp"
+#include "Subscriber.hpp"
 #include "Video.hpp"
 
 #include <iostream>
@@ -13,24 +13,24 @@
 #include <vector>
 
 // constructor
-Customer::Customer(const std::string& name)
+Subscriber::Subscriber(const std::string& name)
     : name(name)
 { }
 
-// customer name
-std::string Customer::getName() const {
+// subscriber name
+std::string Subscriber::getName() const {
 
     return name;
 }
 
-// add a rental to this customer
-void Customer::addRental(const Rental& rental) {
+// add a rental to this subscriber
+void Subscriber::addRental(const Rental& rental) {
 
     rentals.push_back(rental);
 }
 
 // calculates amount for current statement
-double Customer::amountFor(std::vector<Rental>::const_iterator it) const {
+double Subscriber::amountFor(std::vector<Rental>::const_iterator it) const {
   double thisAmount = 0;
   switch(it->getVideo().getCode()) {
 
@@ -54,10 +54,10 @@ double Customer::amountFor(std::vector<Rental>::const_iterator it) const {
   return thisAmount;
 }
 
-// customer rental statement
-std::string Customer::statement() const {
+// subscriber rental statement
+std::string Subscriber::statement() const {
 
-    // customer name
+    // subscriber name
     std::string result("Rental Record for ");
     result += getName();
     result += "\n";

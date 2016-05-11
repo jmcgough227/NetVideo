@@ -1,30 +1,30 @@
 /*
-  Customer.hpp
+  Subscriber.hpp
 
-  Include file for Customer class
+  Include file for Subscriber class
 */
 
-#ifndef CUSTOMER_H
-#define CUSTOMER_H
+#ifndef SUBSCRIBER_H
+#define SUBSCRIBER_H
 
 #include "Rental.hpp"
 
 #include <string>
 #include <vector>
 
-class Customer {
+class Subscriber {
 public:
 
     // constructor
-    Customer(const std::string& name);
+    Subscriber(const std::string& name);
 
-    // customer name
+    // subscriber name
     std::string getName() const;
 
     // add a new rental
     void addRental(const Rental& rental);
 
-    // customer rental statement
+    // subscriber rental statement
     std::string statement() const;
 
     // calculates amount for current statement
